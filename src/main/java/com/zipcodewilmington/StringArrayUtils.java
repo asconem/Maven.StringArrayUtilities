@@ -73,11 +73,8 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        int indicator = 0;
-
         for (int i = 0; i <= array.length /2 && array.length != 0; i++) {
             if (array[i] != array[array.length - i - 1]) {
-                indicator = 1;
                 break;
             }
             return true;
@@ -91,6 +88,24 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
+        String joined = String.join(" ", array);
+        //joined = joined.toLowerCase();
+
+        //char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        //char[] split = joined.toCharArray();
+
+        int i = 0;
+        for (char c : joined.toCharArray()) {
+            int x = Character.toUpperCase(c);
+            if (x >= 'A' && x <= 'Z') {
+                i |= 1<< (x - 'A');
+            }
+        }
+
+        if (i == (i | ((1 << (1 + 'Z' - 'A')) - 1))) {
+            return true;
+        }
+
         return false;
     }
 
