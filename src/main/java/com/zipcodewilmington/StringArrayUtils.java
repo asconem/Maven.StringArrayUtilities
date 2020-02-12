@@ -1,5 +1,7 @@
 package com.zipcodewilmington;
 
+import java.util.Arrays;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -45,6 +47,11 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for (String element : array) {
+            if (element.equals(value)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -53,7 +60,12 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+
+        String[] reverse = new String[array.length];
+        for (int i = array.length - 1; i >= 0; i--) {
+            reverse[array.length - i - 1] = array[i];
+        }
+        return reverse;
     }
 
     /**
