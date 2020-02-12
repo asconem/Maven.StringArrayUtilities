@@ -88,21 +88,15 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        String joined = String.join(" ", array);
-
-        int i = 0;
-        for (char c : joined.toCharArray()) {
-            int x = Character.toUpperCase(c);
-            if (x >= 'A' && x <= 'Z') {
-                i |= 1<< (x - 'A');
+        String words = Arrays.toString(array).toLowerCase();
+            int notPresent = 0;
+            for (char i = 'a'; i <= 'z'; i++) {
+                if (words.indexOf(i) == -1){
+                    notPresent++;
+                }
             }
-        }
 
-        if (i == (i | ((1 << (1 + 'Z' - 'A')) - 1))) {
-            return true;
-        }
-
-        return false;
+        return notPresent == 0;
     }
 
     /**
