@@ -89,10 +89,6 @@ public class StringArrayUtils {
      */ // TODO
     public static boolean isPangramic(String[] array) {
         String joined = String.join(" ", array);
-        //joined = joined.toLowerCase();
-
-        //char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-        //char[] split = joined.toCharArray();
 
         int i = 0;
         for (char c : joined.toCharArray()) {
