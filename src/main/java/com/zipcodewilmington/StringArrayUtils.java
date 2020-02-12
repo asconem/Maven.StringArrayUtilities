@@ -105,7 +105,13 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int found = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value) {
+                found++;
+            }
+        }
+        return found;
     }
 
     /**
