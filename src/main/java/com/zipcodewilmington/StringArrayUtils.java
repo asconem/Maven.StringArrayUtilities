@@ -133,6 +133,16 @@ public class StringArrayUtils {
         }
 
         return newArr;
+
+        /*
+        *String[] newArray = new String[array.length-1];
+        int j = 0;
+        *for(int i = 0; i < array.length; i++) {
+            if(array[i].equals(valueToRemove)) {
+                continue;
+            }
+            newArray[j] = array[i];
+        * */
     }
 
     /**
@@ -183,7 +193,27 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        String store = array[0];
+
+        int counter = 0;
+        int arrayLength = array.length;
+        int iterator = 0;
+        for (int i = array.length-1; i > 0; i--) {
+            if (array[i] != null && array[i].charAt(0) == array[i-1].charAt(0) ) {
+                array[i-1] += array[i];
+                array[i] = null;
+                counter++;
+            }
+        }
+        String[] packConsecutive = new String[arrayLength-counter];
+        for (int i = 0; i < array.length ; i++) {
+            if(array[i] != null) {
+                packConsecutive[iterator] = array[i];
+                iterator++;
+            }
+        }
+        return packConsecutive;
+
+        /*String store = array[0];
         ArrayList<String> newArr = new ArrayList<>();
         newArr.add(array[0]);
         int j = 0;
@@ -201,7 +231,7 @@ public class StringArrayUtils {
             }
         }
 
-        return newArr.toArray(new String[0]);
+        return newArr.toArray(new String[0]);*/
     }
 
 
