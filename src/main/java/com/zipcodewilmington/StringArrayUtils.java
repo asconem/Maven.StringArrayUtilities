@@ -108,7 +108,7 @@ public class StringArrayUtils {
     public static int getNumberOfOccurrences(String[] array, String value) {
         int found = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
+            if (array[i].equals(value)) {
                 found++;
             }
         }
@@ -123,8 +123,8 @@ public class StringArrayUtils {
     public static String[] removeValue(String[] array, String valueToRemove) {
         int n = array.length - getNumberOfOccurrences(array, valueToRemove);
         String[] newArr = new String[n];
-        int j = 0;
 
+        int j = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i].equals(valueToRemove)) {
                 continue;
@@ -186,6 +186,10 @@ public class StringArrayUtils {
         }
 
         return newArr.toArray(new String[0]);*/
+
+        /*
+        *
+        * */
     }
 
     /**
@@ -197,8 +201,9 @@ public class StringArrayUtils {
         int counter = 0;
         int arrayLength = array.length;
         int iterator = 0;
+
         for (int i = array.length-1; i > 0; i--) {
-            if (array[i] != null && array[i].charAt(0) == array[i-1].charAt(0) ) {
+            if (array[i] != null && array[i].charAt(0) == array[i-1].charAt(0)) {
                 array[i-1] += array[i];
                 array[i] = null;
                 counter++;
